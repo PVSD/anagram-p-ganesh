@@ -1,30 +1,37 @@
 package com.company;
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
+
 
 public class Main {
 
     public static void main(String[] args) {
-
-        Scanner kbreader = new Scanner(System.in);
+        Scanner kbReader = new Scanner(System.in);
 
         System.out.println("Enter your first word.");
-        String word1 = kbreader.next();
-
+        String wordOne = kbReader.next();
         System.out.println("Enter your second word.");
-        String word2 = kbreader.next();
+        String wordTwo = kbReader.next();
 
-        if (word1.length() != word2.length()) {
-            System.out.println("Sorry, your words are not anagrams.");
+        if (wordOne.length() == wordTwo.length()) {
 
-        }
+            char[] array1 = wordOne.toCharArray();
+            char[] array2 = wordTwo.toCharArray();
 
-        else if (word1.length() == word2.length()) {
-            int character;
-            for (character = 0; character <= word1.length(); character++) {
-                int a = word1.substring(character, character++).length();
 
+            int count = 0;
+            for (int i = 0; i < array1.length; i++) {
+                if (array1[i] == array2[i])
+                    count++;
             }
+
+            if (count == array2.length) ;
+            System.out.println( wordOne + " and " + wordTwo + " are anagrams of each other!");
+
         }
+        else {
+            System.out.println( wordOne + " and " + wordTwo + " are not anagrams of each other.");
+        }
+
     }
+
 }
